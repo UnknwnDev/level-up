@@ -1,29 +1,26 @@
 import { Tabs } from "expo-router";
 import { useColorScheme } from "react-native";
-import { customThemes } from "@/constants/Colors";
+import { theme } from "@/theme";
 
 export default function TabLayout() {
-  const theme = useColorScheme() === 'dark' ? 'dark' : "light";
-  const themeColors = customThemes[theme];
-
   return (
     <Tabs
       screenOptions={{
         sceneStyle: {
-          backgroundColor: themeColors.background,
+          backgroundColor: theme.background,
         },
 
         headerStyle: {
-          backgroundColor: themeColors.background,
+          backgroundColor: theme.background,
         },
-        headerTintColor: themeColors.text,
+        headerTintColor: theme.text,
 
         tabBarStyle: {
-          backgroundColor: themeColors.background,
+          backgroundColor: theme.background,
           // borderTopWidth: 0,
         },
-        tabBarActiveTintColor: themeColors.accent,
-        tabBarInactiveTintColor: themeColors.secondary,
+        tabBarActiveTintColor: theme.accent,
+        tabBarInactiveTintColor: theme.secondary,
       }}
     >
       <Tabs.Screen name="home" options={{headerTitle: "Dashboard"}}/>

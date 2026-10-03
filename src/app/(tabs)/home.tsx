@@ -1,29 +1,32 @@
-import { Text, View, StyleSheet, useColorScheme } from "react-native";
-import { customThemes } from "@/constants/Colors";
+import { Text, View, StyleSheet, useColorScheme, FlatList } from "react-native";
+import { theme } from "@/theme";
+import { TaskCard } from "@/components/TaskCard";
+import { QuestModal } from "@/components/QuestModal";
+
+
+
 
 export default function Index() {
-  const theme = useColorScheme() === 'dark' ? 'dark' : 'light';
-
-  const styles = createStyles(customThemes[theme]);
-
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome Home!</Text>
+      <TaskCard title="Push-ups" category="Daily Quest" status="[50/100]" />
+      {/*<ItemCard title="Push-ups" category="Daily Quest" status="[50/100]" />*/}
+      <QuestModal>
+      </QuestModal>
     </View>
   );
 }
 
-
-const createStyles = (themeColors: typeof customThemes.light) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    text: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: themeColors.text,
-    }
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: theme.text,
+  },
+});
